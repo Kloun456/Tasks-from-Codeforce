@@ -112,5 +112,77 @@ void Lock(int n)
 	delete[] secret;
 }
 
+void Azbuka_Borze(char* ch)
+{
+	int i = 0, k = 0, j;
+	cout << "Enter combination:\n";
+	while (i < 200)
+	{
+		ch[i] = getchar();
+		if (ch[i] == '\n')
+			break;
+		i++;
+	}
+	// 0 передается как «.», 1 как «-.», 2 как «--»
+	int* mass = new int[i] {0};
+	cout << "\nResult:\n";
+	for (j = 0, k = 0; k < i; k++, j++)
+	{
+		if (ch[j] == '.')
+			mass[k] = 0;
+		else if (ch[j] == '-')
+		{
+			if (ch[j + 1] == '.')
+			{
+				mass[k] = 1;
+				j++;
+			}
+			else
+			{
+				mass[k] = 2;
+				j++;
+			}
+
+		}
+	}
+	for (int j = 0; j < k - 2; j++)
+		cout << mass[j];
+
+	delete[] mass;
+}
+
+void Egor_Trenning(int n)
+{
+	int chest = 0, biceps = 0, back = 0;
+	int* exercise = new int[n];
+	cout << "Enter exercise:\n";
+	for (int i = 1; i <= n; i++)
+	{
+		cin >> exercise[i];
+	}
+	for (int i = 1; i <= n; i++)
+	{
+		if (i % 3 == 1)
+		{
+			chest += exercise[i] * n;
+		}
+		else if (i % 3 == 2)
+		{
+			biceps += exercise[i] * n;
+		}
+		else
+		{
+			back += exercise[i] * n;
+		}
+	}
+	if (biceps > back && biceps > chest)
+		cout << "\nBiceps";
+	else if (back > biceps && back > chest)
+		cout << "\nBack:";
+	else
+		cout << "\nChest";
+
+	delete[] exercise;
+}
 
 

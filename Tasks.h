@@ -10,4 +10,5 @@ void competition(const int& n);
 void Lock(int n);
 void Azbuka_Borze(char* ch);
 void Egor_Trenning(int n);
-
+void Crossword_of_Japan(const int& n);
+void Raven(const int& n);

@@ -185,4 +185,76 @@ void Egor_Trenning(int n)
 	delete[] exercise;
 }
 
+void Crossword_of_Japan(const int& n)  // 18 min
+{
+	int n1 = 0, nc = 0, j = 0;
+	char* symbol = new char[n];
+	cout << "Enter symbol: ";
+	for (int i = 0; i < n; i++)
+		cin >> symbol[i];
+	for (int i = 0; i < n; i++)
+	{
+		if (symbol[i] == 'B' && symbol[i + 1] != 'B')
+		{
+			n1++;
+		}
+	}
+	int* q = new int[n1] {0};
+	for (int i = 0; i < n; i++)
+	{
+		if (symbol[i] == 'B')
+		{
+			q[j] += 1;
+		}
+		else
+			j++;
+	}
+	cout << "Quantity group: " << n1 << endl;
+	for (int i = 0; i < n1; i++)
+		cout << q[i] << "\t";
+
+	delete[] symbol;
+}
+
+void Raven(const int& n)
+{
+	int* chisl = new int[n];
+	int* otvet = new int[n] {0};
+	cout << "Enter digits: ";
+	for (int i = 0; i < n; i++)
+		cin >> chisl[i];
+	for (int i = n - 1; i >= 0; i--)
+	{
+		if (i == n - 1)
+			otvet[i] = chisl[i];
+		else if (i % 2 == 0)
+		{
+			otvet[i] = chisl[i];
+			for (int j = n - 1; j > i; j--)
+			{
+				if (j % 2 == 0)
+					otvet[i] -= otvet[j];
+				else
+					otvet[i] += otvet[j];
+			}
+		}
+		else
+		{
+			otvet[i] = chisl[i];
+			for (int j = n - 1; j > i; j--)
+			{
+				if (j % 2 == 0)
+					otvet[i] += otvet[j];
+				else
+					otvet[i] -= otvet[j];
+			}
+		}
+	}
+	cout << "Result: ";
+	for (int i = 0; i < n; i++)
+		cout << otvet[i] << "\t";
+
+	delete[] chisl;
+	delete[] otvet;
+}
 

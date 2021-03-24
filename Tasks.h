@@ -12,3 +12,5 @@ void Azbuka_Borze(char* ch);
 void Egor_Trenning(int n);
 void Crossword_of_Japan(const int& n);
 void Raven(const int& n);
+void Black_Jack(const int& n);
+void Taxi(const int& n);

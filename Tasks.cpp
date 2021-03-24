@@ -257,4 +257,40 @@ void Raven(const int& n)
 	delete[] chisl;
 	delete[] otvet;
 }
+void Black_Jack(const int& n)
+{
+	int q = 0;
+	int balls[13] = { 2,3,4,5,6,7,8,9,10,10,10,10,11 };
+	for (int m = 0; m < 4; m++)
+	{
+		for (int i = 0; i < 13; i++)
+		{
+			if (10 + balls[i] == n)
+			{
+				q++;
+			}
+		}
+	}
+	if (n == 20)
+		q--;
+	cout << "Quantity variants: " << q << endl;
+} // 12 min
 
+void Taxi(const int& n)
+{
+	int q = 1, s = 0, s1 = 0, max = 0;
+	bool b = true;
+	int* group = new int[n];
+	cout << "Enter group:\n";
+	for (int i = 0; i < n; i++)
+		cin >> group[i];
+
+	for (int i = 0; i < n; i++)
+	{
+		s += group[i];
+	}
+	q = s % 4 + s / 4;
+	cout << "\nQuantity: " << q << endl;
+
+	delete[] group;
+}

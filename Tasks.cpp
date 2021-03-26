@@ -294,3 +294,31 @@ void Taxi(const int& n)
 
 	delete[] group;
 }
+
+void Ahaha(const int& n)
+{
+	int n1, x, s = 0, j;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> n1;
+		for (j = 1; j <= n1; j++)
+		{
+			cin >> x;
+			s += x;
+		}
+		if (s > n1 - s)
+		{
+			n1 = s / 2 * 2;
+			s = 1;
+		}
+		else
+		{
+			n1 = n1 - s;
+			s = 0;
+		}
+		cout << "Result:\nn: " << n1 << endl;
+		while (n1--)
+			cout << s << "\t";
+		cout << endl;
+	}
+}

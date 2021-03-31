@@ -15,3 +15,5 @@ void Raven(const int& n);
 void Black_Jack(const int& n);
 void Taxi(const int& n);
 void Ahaha(const int& n);
+void Squaresand_and_lines(const int& n);
+void Dark_and_light();

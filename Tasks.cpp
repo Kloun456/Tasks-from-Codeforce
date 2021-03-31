@@ -322,3 +322,35 @@ void Ahaha(const int& n)
 		cout << endl;
 	}
 }
+
+void Squaresand_and_lines(const int& n) // 30 min
+{
+	if (n == 1)
+		cout << "2";
+	else if (n == 2)
+		cout << "3";
+	else
+	{
+		if (n % 2 == 0)
+			cout << (n - 1) / 2 + 3;
+		else
+			cout << n / 2 + 3;
+	}
+}
+
+void Dark_and_light() //  6 min
+{
+	int a, b, c;
+	cout << "Enter a: ";
+	cin >> a;
+	cout << "Enter b: ";
+	cin >> b;
+	cout << "Enter c: ";
+	cin >> c;
+	if ((c / a) * a + b == c || (c / b) * b + a == c || c % b == 0 || c % a == 0)
+	{
+		cout << "Yes";
+	}
+	else
+		cout << "No";
+}

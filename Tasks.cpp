@@ -354,3 +354,70 @@ void Dark_and_light() //  6 min
 	else
 		cout << "No";
 }
+
+void Rossetes() // 17 min
+{
+	int n, k, m, * filters, s = 0, q = 0, i1 = 0;
+	cout << "Enter n: ";
+	cin >> n;
+	cout << "Enter m: ";
+	cin >> m;
+	cout << "Enter k: ";
+	cin >> k;
+	filters = new int[n];
+	for (int i = 0; i < n; i++)
+		cin >> filters[i];
+	if (m == k)
+	{
+		cout << "-1";
+	}
+	else
+	{
+		s = m - k;
+		for (int i = 0; i < n; i++)
+		{
+			if (s == filters[i] || s < filters[i])
+			{
+				q++;
+				break;
+			}
+
+			else
+			{
+				s = s - Max_array(filters, n, i1);
+				filters[i1] = 0;
+				q++;
+			}
+		}
+		cout << "Result: " << q;
+	}
+	delete[] filters;
+}
+
+void Vitaliy_and_pie(int n) // 30 min
+{
+	char* s;
+	bool b;
+	n = 2 * n - 2;
+	s = new char[n];
+	int q = 0;
+	cout << "Enter string: ";
+	cin >> s;
+	for (int i = 0; i < n; i += 2)
+	{
+		b = true;
+		for (int j = i + 1; j <= n; j += 2)
+		{
+			if ((int)s[i] == (int)s[j] + 32)
+			{
+				b = false;
+				break;
+			}
+		}
+		if (b)
+			q++;
+	}
+	cout << "Quantity keys: " << q;
+
+	delete[] s;
+}

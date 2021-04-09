@@ -19,3 +19,5 @@ void Squaresand_and_lines(const int& n);
 void Dark_and_light();
 void Rossetes();
 void Vitaliy_and_pie(int n);
+void Ilya_and_walk(const int& n);
+void Pigs_and_wolfs();

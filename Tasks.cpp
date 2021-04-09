@@ -421,3 +421,77 @@ void Vitaliy_and_pie(int n) // 30 min
 
 	delete[] s;
 }
+
+void Ilya_and_walk(const int& n) // 4 min
+{
+	int r = 0, * homes;
+	homes = new int[n];
+	for (int i = 0; i < n; i++)
+		cin >> homes[i];
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			if (homes[i] != homes[j] && j - i > r)
+			{
+				r = j - i;
+			}
+		}
+	}
+	cout << "Result: " << r;
+
+	delete[] homes;
+}
+
+void Pigs_and_wolfs()
+{
+	int m, n, q = 0;
+	char** matrix;
+	cout << "Enter n and m: ";
+	cin >> n >> m;
+	matrix = new char* [n];
+	for (int i = 0; i < n; i++)
+		matrix[i] = new char[m];
+	cout << "Enter field:\n";
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+			cin >> matrix[i][j];
+	}
+
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < m; j++)
+		{
+			if (matrix[i][j] == 'W')
+			{
+				if (j > 0 && matrix[i][j - 1] == 'P')
+				{
+					matrix[i][j - 1] = '.';
+					q++;
+				}
+				else if (j < m && matrix[i][j + 1] == 'P')
+				{
+					matrix[i][j + 1] = '.';
+					q++;
+				}
+				else if (i > 0 && matrix[i - 1][j] == 'P')
+				{
+					matrix[i - 1][j] = '.';
+					q++;
+				}
+				else if (i == 0 && matrix[i + 1][j] == 'P')
+				{
+					matrix[i + 1][j] = '.';
+					q++;
+				}
+			}
+		}
+	}
+	cout << "Quantity pigs: " << q;
+
+	for (int i = 0; i < n; i++)
+		delete[] matrix[i];
+	delete matrix;
+}

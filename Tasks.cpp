@@ -495,3 +495,129 @@ void Pigs_and_wolfs()
 		delete[] matrix[i];
 	delete matrix;
 }
+
+void Sweety_problem(const int& n) // 30 min
+{
+	int* days;
+	days = new int[n] {0};
+	cout << "Enter sweets:\n";
+	for (int i = 0; i < n; i++)
+	{
+		int sweet[3];
+		cin >> sweet[0] >> sweet[1] >> sweet[2];
+		if (Max(sweet[0], sweet[1], sweet[2]) == sweet[0])
+		{
+			if (sweet[0] == sweet[1] || sweet[0] == sweet[2])
+			{
+				days[i] += sweet[0] + 1;
+			}
+			else if (sweet[1] > sweet[2])
+			{
+				sweet[0] -= sweet[1];
+				days[i] = sweet[1];
+				if (sweet[0] > sweet[2])
+					days[i] += sweet[2];
+				else
+					days[i] += sweet[0];
+			}
+			else
+			{
+				sweet[0] -= sweet[2];
+				days[i] = sweet[2];
+				if (sweet[0] > sweet[1])
+					days[i] += sweet[1];
+				else
+					days[i] += sweet[0];
+			}
+		}
+		else if (Max(sweet[0], sweet[1], sweet[2]) == sweet[1])
+		{
+			if (sweet[1] == sweet[0] || sweet[1] == sweet[2])
+			{
+				days[i] += sweet[1] + 1;
+			}
+			else if (sweet[0] > sweet[2])
+			{
+				sweet[1] -= sweet[0];
+				days[i] = sweet[0];
+				if (sweet[1] > sweet[2])
+					days[i] += sweet[2];
+				else
+					days[i] += sweet[1];
+			}
+			else
+			{
+				sweet[1] -= sweet[2];
+				days[i] = sweet[2];
+				if (sweet[1] > sweet[0])
+					days[i] += sweet[0];
+				else
+					days[i] += sweet[2];
+			}
+		}
+		else //2
+		{
+			if (sweet[2] == sweet[1] || sweet[2] == sweet[0])
+			{
+				days[i] += sweet[2] + 1;
+			}
+			else if (sweet[0] > sweet[1])
+			{
+				sweet[2] -= sweet[0];
+				days[i] = sweet[0];
+				if (sweet[2] > sweet[1])
+					days[i] += sweet[1];
+				else
+					days[i] += sweet[2];
+			}
+			else
+			{
+				sweet[2] -= sweet[1];
+				days[i] = sweet[1];
+				if (sweet[2] > sweet[0])
+					days[i] += sweet[0];
+				else
+					days[i] += sweet[2];
+			}
+		}
+		cout << endl;
+	}
+
+	cout << "\nResult:\n";
+	for (int i = 0; i < n; i++)
+		cout << days[i] << endl;
+
+	delete[] days;
+}
+
+void Number_on_desk(int n) // 20 min
+{
+	int k, s = 0, q = 0, n1 = 0;
+	cout << "Enter k: ";
+	cin >> k;
+	while (n > 0)
+	{
+		s += n % 10;
+		n1++;
+		n /= 10;
+	}
+	if (s < k)
+	{
+		for (int i = 0; i < n1; i++)
+		{
+			if (s + 9 > k)
+			{
+				q += 1;
+				break;
+			}
+			else
+			{
+				s += 9;
+				q += 1;
+			}
+		}
+		cout << "\nq = " << q << endl;
+	}
+	else
+		cout << "\n0";
+}

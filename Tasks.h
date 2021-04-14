@@ -21,3 +21,5 @@ void Rossetes();
 void Vitaliy_and_pie(int n);
 void Ilya_and_walk(const int& n);
 void Pigs_and_wolfs();
+void Sweety_problem(const int& n);
+void Number_on_desk(int n);

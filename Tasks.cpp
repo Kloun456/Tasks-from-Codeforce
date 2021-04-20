@@ -621,3 +621,43 @@ void Number_on_desk(int n) // 20 min
 	else
 		cout << "\n0";
 }
+
+void Walk_under_rain(const int& n) // 30 min
+{
+	int* road = new int[n];
+	int min, q = 0;
+	bool b = true;
+	cout << "Enter days:\n";
+	for (int i = 0; i < n; i++)
+		cin >> road[i];
+
+	while (b)
+	{
+		min = 9999;
+		for (int i = 0; i < n; i++)
+		{
+			if (road[i] > 0 && road[i] < min)
+				min = road[i];
+		}
+		for (int i = 0; i < n; i++)
+		{
+			road[i] -= min;
+		}
+		q += min;
+		for (int i = 2; i < n - 1; i += 2)
+		{
+			if (road[i] > 0 && road[0] > 0 && road[n - 1] > 0 || road[i - 1] > 0 && road[0] > 0 && road[n - 1] > 0)
+			{
+				b = true;
+			}
+			else
+			{
+				b = false;
+			}
+		}
+		cout << "\nmin: " << min << endl;
+	}
+	cout << endl << q;
+
+	delete[] road;
+}

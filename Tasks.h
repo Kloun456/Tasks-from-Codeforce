@@ -24,3 +24,4 @@ void Pigs_and_wolfs();
 void Sweety_problem(const int& n);
 void Number_on_desk(int n);
 void Walk_under_rain(const int& n);
+void Great_July_calendar(int n);

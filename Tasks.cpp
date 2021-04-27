@@ -661,3 +661,26 @@ void Walk_under_rain(const int& n) // 30 min
 
 	delete[] road;
 }
+
+void Great_July_calendar(int n) // 10 min
+{
+	int max = 0, n1 = 0, temp;
+
+	while (n > 0)
+	{
+		temp = n;
+		max = n % 10;
+		while (temp)
+		{
+			if (max < temp % 10)
+			{
+				max = temp % 10;
+			}
+			temp /= 10;
+		}
+		n -= max;
+		n1++;
+	}
+
+	cout << n1;
+}

@@ -684,3 +684,45 @@ void Great_July_calendar(int n) // 10 min
 
 	cout << n1;
 }
+
+void Vanya_and_lanterns(const int& n) // 15 min
+{
+	int l, min, j1, temp;
+	int* lantern_positions = new int[n];
+	float r = 0;
+	cout << "Enter street length: ";
+	cin >> l;
+	cout << "\nEnter lantern positions:\n";
+	for (int i = 0; i < n; i++)
+		cin >> lantern_positions[i];
+	for (int i = 0; i < n; i++)
+	{
+		min = lantern_positions[i];
+		j1 = i;
+		for (int j = i; j < n; j++)
+		{
+			if (min > lantern_positions[j])
+			{
+				min = lantern_positions[j];
+				j1 = j;
+			}
+		}
+		temp = lantern_positions[i];
+		lantern_positions[i] = lantern_positions[j1];
+		lantern_positions[j1] = temp;
+	}
+	if (lantern_positions[0] != 0)
+		r = lantern_positions[0];
+	else
+		r = 0;
+	for (int i = 0; i < n - 1; i++)
+	{
+		if ((lantern_positions[i + 1] - lantern_positions[i]) / 2.0 > r)
+		{
+			r = (lantern_positions[i + 1] - lantern_positions[i]) / 2.0;
+		}
+	}
+	cout << "Radius: " << r << endl;
+
+	delete[] lantern_positions;
+}

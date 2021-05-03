@@ -726,3 +726,53 @@ void Vanya_and_lanterns(const int& n) // 15 min
 
 	delete[] lantern_positions;
 }
+
+void Another_broken_keyboards(const int& n)
+{
+	int k, q = 0;
+	bool b = false;
+	string s;
+	char* symbols;
+	cout << "\nEnter k: ";
+	cin >> k;
+	symbols = new char[k];
+	cout << "\nEnter string: ";
+	cin >> s;
+	cout << "\nEnter available symbols: ";
+	cin >> symbols;
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = 0; j < k; j++)
+		{
+			if (s[i] == symbols[j])
+			{
+				b = true;
+				q++;
+				break;
+			}
+		}
+		for (int j = i + 1; j < n; j++)
+		{
+			if (b)
+			{
+				for (int m = 0; m < k; m++)
+				{
+					if (s[j] == symbols[m])
+					{
+						q++;
+						b = true;
+						break;
+					}
+					else
+					{
+						b = false;
+					}
+				}
+			}
+		}
+	}
+	cout << q;
+
+	delete[] symbols;
+}

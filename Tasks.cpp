@@ -776,3 +776,122 @@ void Another_broken_keyboards(const int& n)
 
 	delete[] symbols;
 }
+
+void Ternary_string(const int& n) // 30 min
+{
+	string s;
+	int* q = new int[n] {0};
+	bool b = false, c = false;
+	int ib, ie = 0;
+	cout << "Enter combination:\n";
+	for (int i = 0; i < n; i++)
+	{
+		cin >> s;
+		q[i] = 9999;
+		for (int j = 0; j < s.length(); j++)
+		{
+			ib = j;
+			c = false;
+			b = false;
+
+			for (int k = j + 1; k < s.length(); k++)
+			{
+				if (s[j] == '1')
+				{
+					if (s[k] == '1')
+						break;
+					else if (s[k] == '2')
+					{
+						if (!c)
+							b = true;
+						else
+						{
+							b = true;
+							ie = k;
+							break;
+						}
+					}
+					else
+					{
+						if (!b)
+							c = true;
+						else
+						{
+							c = true;
+							ie = k;
+							break;
+						}
+					}
+				}
+				else if (s[j] == '2')
+				{
+					if (s[k] == '2')
+						break;
+					else if (s[k] == '1')
+					{
+						if (!c)
+							b = true;
+						else
+						{
+							b = true;
+							ie = k;
+							break;
+						}
+					}
+					else
+					{
+						if (!b)
+							c = true;
+						else
+						{
+							c = true;
+							ie = k;
+							break;
+						}
+					}
+				}
+				else
+				{
+					if (s[k] == '3')
+						break;
+					else if (s[k] == '2')
+					{
+						if (!c)
+							b = true;
+						else
+						{
+							b = true;
+							ie = k;
+							break;
+						}
+					}
+					else
+					{
+						if (!b)
+							c = true;
+						else
+						{
+							c = true;
+							ie = k;
+							break;
+						}
+					}
+				}
+			}
+
+			if (q[i] > ie - ib + 1 && c && b)
+			{
+				q[i] = ie - ib + 1;
+			}
+		}
+		if (q[i] == 9999)
+		{
+			q[i] = 0;
+		}
+	}
+
+	cout << endl;
+	for (int i = 0; i < n; i++)
+		cout << q[i] << "\t";
+
+}

@@ -28,3 +28,4 @@ void Great_July_calendar(int n);
 void Vanya_and_lanterns(const int& n);
 void Another_broken_keyboards(const int& n);
 void Ternary_string(const int& n);
+void Ball_in_BerlGU(const int& n);

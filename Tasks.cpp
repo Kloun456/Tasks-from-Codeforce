@@ -895,3 +895,55 @@ void Ternary_string(const int& n) // 30 min
 		cout << q[i] << "\t";
 
 }
+
+void Ball_in_BerlGU(const int& n) // 15 min
+{
+	int m, q = 0;
+	int* boys = new int[n];
+	bool b = true;
+	cout << "Enter quantity girls: ";
+	cin >> m;
+	int* girls = new int[m];
+	cout << "Enter skiils of boys:\n";
+	for (int i = 0; i < n; i++)
+	{
+		cin >> boys[i];
+	}
+	cout << "Enter skiils of girls:\n";
+	for (int i = 0; i < m; i++)
+		cin >> girls[i];
+
+	b = m > n ? true : false;
+
+	if (b)
+	{
+		for (int i = 0; i < m; i++)
+		{
+			for (int j = 0; j < n; j++)
+			{
+				if (abs(girls[i] - boys[j]) <= 1)
+				{
+					q++;
+					boys[j] = -1;
+					break;
+				}
+			}
+		}
+	}
+	else
+	{
+		for (int i = 0; i < n; i++)
+		{
+			for (int j = 0; j < m; j++)
+			{
+				if (abs(boys[i] - girls[j]) <= 1)
+				{
+					q++;
+					girls[j] = -1;
+					break;
+				}
+			}
+		}
+	}
+	cout << "Quantity: " << q;
+}

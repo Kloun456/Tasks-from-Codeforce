@@ -947,3 +947,22 @@ void Ball_in_BerlGU(const int& n) // 15 min
 	}
 	cout << "Quantity: " << q;
 }
+
+void Checking_pants_for_dullness(const int& n) // 5 min
+{
+	int* Test = new int[n];
+	int s = 0;
+	cout << "Enter quantity questions:\n";
+	for (int i = 0; i < n; i++)
+		cin >> Test[i];
+
+	for (int i = 0; i < n; i++)
+	{
+		if (Test[i] != 1 && i != n - 1)
+			s += Test[i] + 1;
+		else
+			s += Test[i];
+	}
+
+	cout << "\nResult: " << s << endl;
+}

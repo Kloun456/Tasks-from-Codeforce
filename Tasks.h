@@ -30,3 +30,4 @@ void Another_broken_keyboards(const int& n);
 void Ternary_string(const int& n);
 void Ball_in_BerlGU(const int& n);
 void Checking_pants_for_dullness(const int& n);
+void Pashmak_and_garden(const int& n);

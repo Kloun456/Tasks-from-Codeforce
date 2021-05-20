@@ -966,3 +966,49 @@ void Checking_pants_for_dullness(const int& n) // 5 min
 
 	cout << "\nResult: " << s << endl;
 }
+
+void Pashmak_and_garden(const int& n) // 30 min
+{
+	int garden[4];
+	int a = 0;
+	float x1, y1, x2, y2;
+	cout << "Enter coordinates:\n";
+	for (int i = 0; i < 4; i++)
+		cin >> garden[i];
+
+	if (garden[0] == garden[2] || garden[1] == garden[3])
+	{
+
+		if (garden[0] == garden[2])
+		{
+			a = abs(garden[1] - garden[3]);
+			garden[0] += a;
+			garden[2] += a;
+		}
+		else
+		{
+			a = abs(garden[0] - garden[2]);
+			garden[1] += a;
+			garden[3] += a;
+		}
+	}
+	else if (abs(garden[0] - garden[2]) == abs(garden[1] - garden[3]))
+	{
+		x1 = (garden[0] + garden[2]) / 2.0;
+		y1 = (garden[1] + garden[3]) / 2.0;
+		x2 = (garden[2] - garden[0]) / 2.0;
+		y2 = (garden[3] - garden[1]) / 2.0;
+		garden[0] = x1 + y2;
+		garden[1] = y1 - x2;
+		garden[2] = x1 - y2;
+		garden[3] = y1 + x2;
+	}
+	else
+	{
+		cout << "-1" << endl;
+		exit(1);
+	}
+	cout << "Result:\n";
+	for (int i = 0; i < 4; i++)
+		cout << garden[i] << "\t";
+}

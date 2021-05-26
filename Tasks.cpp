@@ -1012,3 +1012,30 @@ void Pashmak_and_garden(const int& n) // 30 min
 	for (int i = 0; i < 4; i++)
 		cout << garden[i] << "\t";
 }
+
+void Persian_carpet(int n)
+{
+	int temp = n, n1, k, q = 0, h;
+	cout << "\nEnter k: ";
+	cin >> k;
+	cout << "\nEnter n1: ";
+	cin >> n1;
+	do
+	{
+		n -= n1;
+		q++;
+	} while (n1 <= n);
+	h = n;
+	n = 2 * n * temp - n * n;
+	q *= q;
+	while (n > 0)
+	{
+		n -= n1 * h;
+		q++;
+	}
+	if (q <= k)
+		cout << "Yes, quantity carpets: " << q << endl;
+	else
+		cout << "No" << endl;
+
+}

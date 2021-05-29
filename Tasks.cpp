@@ -1039,3 +1039,42 @@ void Persian_carpet(int n)
 		cout << "No" << endl;
 
 }
+
+void Happy_Birthday(const int& n)
+{
+	int* children = new int[n];
+	int max, temp, q = 1;
+	cout << "Enter children growth:\n";
+	for (int i = 0; i < n; i++)
+		cin >> children[i];
+
+	for (int i = 0; i < n; i++)
+	{
+		for (int j = i + 1; j < n; j++)
+		{
+			if (children[i] > children[j])
+			{
+				temp = children[i];
+				children[i] = children[j];
+				children[j] = temp;
+			}
+		}
+	}
+
+	for (int i = 1; i < n; i++)
+	{
+		if (children[i] == children[i - 1])
+		{
+			temp = children[i];
+			children[i] = children[n - q];
+			children[n - q] = temp;
+			q++;
+			cout << endl;
+			for (int i = 0; i < n; i++)
+				cout << "\t" << children[i];
+		}
+	}
+	cout << "\nResult:\n";
+	for (int i = 0; i < n; i++)
+		cout << children[i];
+}

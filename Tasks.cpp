@@ -1078,3 +1078,84 @@ void Happy_Birthday(const int& n)
 	for (int i = 0; i < n; i++)
 		cout << children[i];
 }
+
+void Before_exam(const int& n)
+{
+	int all, n1 = n;
+	bool b = 1;
+	int* result = new int[n];
+	int** quantity_h = new int* [n];
+	for (int i = 0; i < n; i++)
+		quantity_h[i] = new int[2];
+	cout << "Enter all hours: ";
+	cin >> all;
+	cout << "Enter quantity hours:\n";
+	for (int i = 0; i < n; i++)
+	{
+		cout << endl;
+		for (int j = 0; j < 2; j++)
+			cin >> quantity_h[i][j];
+	}
+
+	for (int i = 0; i < n; i++)
+	{
+		n1--;
+		if (n1 == 0)
+		{
+			if ((all - quantity_h[i][0]) <= 0 || (all - quantity_h[i][1]) <= 0)
+			{
+				result[i] = all;
+				all = 0;
+				break;
+			}
+		}
+		else
+		{
+			if ((all - quantity_h[i][0]) / n1 <= quantity_h[i + 1][1] && quantity_h[i][0] != 0)
+			{
+				result[i] = quantity_h[i][0];
+				all -= quantity_h[i][0];
+			}
+			else
+			{
+				if (quantity_h[i][0] < quantity_h[i][1])
+				{
+					quantity_h[i][0]++;
+					for (quantity_h[i][0]; quantity_h[i][0] <= quantity_h[i][1]; quantity_h[i][0]++)
+					{
+						if ((all - quantity_h[i][0]) / n1 <= quantity_h[i + 1][1])
+						{
+							result[i] = quantity_h[i][0];
+							all -= quantity_h[i][0];
+							break;
+						}
+						if ((all - quantity_h[i][0]) / n1 > quantity_h[i + 1][1] && quantity_h[i][0] == quantity_h[i][1])
+						{
+							cout << "No";
+							exit(1);
+						}
+					}
+				}
+				else
+				{
+					cout << "NO!";
+					exit(1);
+				}
+			}
+		}
+
+
+	}
+
+	if (!all)
+	{
+		cout << "\nYes!\n";
+		for (int i = 0; i < n; i++)
+			cout << result[i] << "\t";
+	}
+	else
+	{
+		cout << "\nNo!\n";
+	}
+
+}

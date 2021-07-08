@@ -1159,3 +1159,27 @@ void Before_exam(const int& n)
 	}
 
 }
+
+void Gerb_antikubizmu(const int& n)
+{
+	int i1, max = -999999999, s = 0;
+	int* length = new int[n];
+	cout << "Enter length of kernel:\n";
+	for (int i = 0; i < n; i++)
+		cin >> length[i];
+	for (int i = 0; i < n; i++)
+	{
+		if (max < length[i])
+		{
+			max = length[i];
+			i1 = i;
+		}
+	}
+	for (int i = 0; i < n; i++)
+	{
+		if (i != i1)
+			s += length[i];
+	}
+	cout << max - s + 1;
+
+}
